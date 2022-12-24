@@ -1,21 +1,25 @@
-﻿# Оценка цены предложений на жилье на AirBnb по комментариям к ним
+# Применение итогового датасета 
+﻿Датасет предназначен для арендодателей *для определения ценности сдачи жилья* через marketplace AirBnb (Airbnb, Inc — американская компания в сфере онлайн-бронирования жилья, в первую очередь для краткосрочной аренды в рамках туристических и деловых поездок. Базирующаяся в Сан-Франциско, Калифорния, платформа доступна через веб-сайт и мобильное приложение).
 
-**Airbnb, Inc** — американская компания в сфере онлайн-бронирования жилья, в первую очередь для краткосрочной аренды в рамках туристических и деловых поездок. Базирующаяся в Сан-Франциско, Калифорния, платформа доступна через веб-сайт и мобильное приложение.
+Например, с *определенными допущениями можно высчитать загрузку объекта* (число дней в году, когда объект сдается) и высчитать приведенный доход на человека или на спальное место. 
+Конечно же, датасет содержит расположение объектов и по столбцам можно понять о качестве объекта и наличии удобств, техники. 
+Более того, признаков достаточно для глубокого анализа (например, сохранено имя хоста для тех пользователей датасета, кто захочет определить упоминание имени хоста в саммари или прочих текстовых столбцах или узнать, есть ли изображение объекта), то есть при глубоком анализе можно сделать вывод, каким может быть эффективное описание или саммари объекта и требования квартиросъемщику.
+
+Кроме этого, можно заиспользовать id в будущем для мерджа с другими датасетами, а также добавить базу продаж объектов по тем же адресам, что могло бы дать возможность рассчитать прогнозную числую приведенную стоимость инвестиции в недвижимость (прибыль) с учетом затрат на покупку объекта недвижимости, в добавок к тому, что уже сейчас можно рассчитать (например, прогнозную приведенную стоимость арендных платежей).
 
 
-# Описание датасета
+# Детальное описание датасета
 
 В итоговый датасет вошли данные из четырех датасетов по предложениям бронирования в Нью-Йорке, Бостоне, Денвере и Сиэтле. 
 
 ## Основные параметры
 
 В итоговом датасете содержится следующая информация:
- - Полные описания предложений и средняя оценка по отзывам
- - Обзоры, включая уникальный идентификатор для каждого рецензента и подробные комментарии
- - Календарь, включая идентификатор объявления, а также цену и доступность на этот день    
- - Районы с простыми метками
+ - Полные описания предложений аренды
+ - Информация о владельце и его требования
+ - Информацию о рейтингах объекта от пользователей сервиса
 
-## Итоговая структура
+## Структура
 
 По итогам экспертного анализа по более 100 изначальных признаков было решение оставить следующие:
 **1 scrape_id** *идентификатор листинга, который можно использовать для создания соединения с другими файлами*
@@ -107,29 +111,16 @@
 87 calculated_host_listings_count_private_rooms float64  
 88 calculated_host_listings_count_shared_rooms float64
 
-Исходя из содержания столбцов, мы пришли к выводу, что можем **удалить** столбцы **listing_url, thumbnail_url, medium_url, xl_picture_url, country_code, country, has_availability**.
+Исходя из содержания столбцов, мы пришли к выводу, что можем удалить столбцы listing_url, thumbnail_url, medium_url, xl_picture_url, country_code, country, has_availability.
+В дополнение к этому, были были удалены сильно скоррелированные признаки:
+'maximum_nights_avg_ntm', 'minimum_nights_avg_ntm', 'minimum_maximum_nights', 'minimum_maximum_nights', 'city', 'calculated_host_listings_count', 'minimum_minimum_nights', 'minimum_nights_avg_ntm', 'minimum_minimum_nights', 'jurisdiction_names', 'maximum_minimum_nights', 'medium_url', 'thumbnail_url', 'df_city', 'maximum_minimum_nights', 'availability_60'.
   
 После анализа было решено оставить столбцы, которые могут быть полезны при дальнейшем глубоком анализе, например, может пригодиться name хоста в случае парсинга пользователями набора данных столбцов summary или house_rules, а picture_url может пригодитьсядля понимания, есть ли вообще картинка у предложения.
 
-**Сильно скоррелированные признаки:** [('maximum_maximum_nights', 'maximum_nights_avg_ntm'), ('maximum_nights_avg_ntm', 'maximum_maximum_nights'), ('minimum_nights', 'minimum_nights_avg_ntm'), ('minimum_nights_avg_ntm', 'minimum_nights'), ('maximum_nights_avg_ntm', 'minimum_maximum_nights'), ('minimum_maximum_nights', 'maximum_nights_avg_ntm'), ('maximum_maximum_nights', 'minimum_maximum_nights'), ('minimum_maximum_nights', 'maximum_maximum_nights'), ('smart_location', 'city'), ('city', 'smart_location'), ('calculated_host_listings_count_entire_homes', 'calculated_host_listings_count'), ('calculated_host_listings_count', 'calculated_host_listings_count_entire_homes'), ('minimum_nights_avg_ntm', 'minimum_minimum_nights'), ('minimum_minimum_nights', 'minimum_nights_avg_ntm'), ('maximum_minimum_nights', 'minimum_nights_avg_ntm'), ('minimum_nights_avg_ntm', 'maximum_minimum_nights'), ('minimum_nights', 'minimum_minimum_nights'), ('minimum_minimum_nights', 'minimum_nights'), ('longitude', 'jurisdiction_names'), ('jurisdiction_names', 'longitude'), ('minimum_nights', 'maximum_minimum_nights'), ('maximum_minimum_nights', 'minimum_nights'), ('xl_picture_url', 'medium_url'), ('medium_url', 'xl_picture_url'), ('medium_url', 'thumbnail_url'), ('thumbnail_url', 'medium_url'), ('market', 'df_city'), ('df_city', 'market'), ('minimum_minimum_nights', 'maximum_minimum_nights'), ('maximum_minimum_nights', 'minimum_minimum_nights'), ('availability_90', 'availability_60'), ('availability_60', 'availability_90')]  
-Признаки на удаление, кросс-корреляция выше 0.95 :  
-['maximum_nights_avg_ntm', 'minimum_nights_avg_ntm', 'minimum_maximum_nights', 'minimum_maximum_nights', 'city', 'calculated_host_listings_count', 'minimum_minimum_nights', 'minimum_nights_avg_ntm', 'minimum_minimum_nights', 'jurisdiction_names', 'maximum_minimum_nights', 'medium_url', 'thumbnail_url', 'df_city', 'maximum_minimum_nights', 'availability_60'.
-
-Таким образом, удалены за два захода столбцы по причине **повторяемости/одинаковости и по причине высокой кросс-корреляции.**
-# Применение итогового датасета 
-Датасет может быть использован арендодателями для определения **ценности сдачи в аренду своего жилья**. Например, с определенными допущениями можно высчитать загрузку объекта (число дней в году, когда объект сдается) и высчитать приведенный доход на человека или на спальное место. Конечно же, датасет содержит расположение объектов и по столбцам можно понять о качестве объекта и наличии удобств, техники. Более того, признаков достаточно для глубокого анализа (например, сохранено имя хоста для тех пользователей датасета, кто захочет определить упоминание имени хоста в саммари или прочих текстовых столбцах или узнать, есть ли изображение объекта), то есть **при глубоком анализе можно сделать вывод, каким может быть эффективное описание или саммари объекта и требования квартиросъемщику.**
-
-Кроме этого, можно заиспользовать id в будущем для мерджа с другими датасетами, а также добавить базу продаж объектов по тем же адресам, что могло бы дать возможность рассчитать прогнозную числую приведенную стоимость инвестиции в недвижимость (прибыль) с учетом затрат на покупку объекта недвижимости, в добавок к тому, что уже сейчас можно рассчитать (прогнозную приведенную стоимость арендных платежей).
---- ------ -----  
 
 
 ## Список источников
-
 [https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv](https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv "https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv")
-
 [https://www.kaggle.com/datasets/airbnb/seattle](https://www.kaggle.com/datasets/airbnb/seattle "https://www.kaggle.com/datasets/airbnb/seattle")
-
 [https://www.kaggle.com/datasets/airbnb/boston](https://www.kaggle.com/datasets/airbnb/boston "https://www.kaggle.com/datasets/airbnb/boston")
-
 [https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata](https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata "https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata")
-
