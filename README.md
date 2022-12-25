@@ -208,6 +208,9 @@
 
 ## Список источников
 [https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv](https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv "https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv")
+
 [https://www.kaggle.com/datasets/airbnb/seattle](https://www.kaggle.com/datasets/airbnb/seattle "https://www.kaggle.com/datasets/airbnb/seattle")
+
 [https://www.kaggle.com/datasets/airbnb/boston](https://www.kaggle.com/datasets/airbnb/boston "https://www.kaggle.com/datasets/airbnb/boston")
+
 [https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata](https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata "https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata")
