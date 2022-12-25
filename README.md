@@ -3,7 +3,7 @@
 
 Например, с *определенными допущениями можно высчитать загрузку объекта* (число дней в году, когда объект сдается) и высчитать приведенный доход на человека или на спальное место. 
 Конечно же, датасет содержит расположение объектов и по столбцам можно понять о качестве объекта и наличии удобств, техники. 
-Более того, признаков достаточно для глубокого анализа (например, сохранено имя хоста для тех пользователей датасета, кто захочет определить упоминание имени хоста в саммари или прочих текстовых столбцах или узнать, есть ли изображение объекта), то есть при глубоком анализе можно сделать вывод, каким может быть эффективное описание или саммари объекта и требования квартиросъемщику.
+Более того, признаков достаточно для глубокого анализа (например, сохранено имя объекта для тех пользователей датасета, кто захочет найти упоминание имени в саммари или прочих текстовых столбцах для анализа тональности), то есть при глубоком анализе можно сделать вывод, каким может быть эффективное описание или саммари объекта и требования квартиросъемщику.
 
 Кроме этого, можно заиспользовать id в будущем для мерджа с другими датасетами, а также добавить базу продаж объектов по тем же адресам, что могло бы дать возможность рассчитать прогнозную числую приведенную стоимость инвестиции в недвижимость (прибыль) с учетом затрат на покупку объекта недвижимости, в добавок к тому, что уже сейчас можно рассчитать (например, прогнозную приведенную стоимость арендных платежей).
 
@@ -21,102 +21,102 @@
 
 ## Структура
 
-По итогам экспертного анализа по более 100 изначальных признаков было решение оставить следующие (название признаков обычно говорит само за себя, тем не менее, к большинству даны пояснения):
-1 scrape_id *идентификатор листинга, который можно использовать для создания соединения с другими файлами*
-2 last_scraped *последняя дата парсинга* 
-3 name *имя хоста* 
-4 summary *саммари объекта* 
-5 space *описание географического расположения объекта*
-6 description *описание самого объекта*
-7 experiences_offered - *активности хоста*
-8 neighborhood_overview object *описание территориальной единицы*
-9 notes object *заметки хоста*
-10 transit object  *транспортная доступность*
-11 access object  *подробности по включенным опциям*
-12 interaction object  
-13 house_rules object  *правила проживания*
-14 picture_url object  *ссылка на картинку объекта*
-15 host_id int64  *id хоста*
-16 host_url object  *фото хоста*
-17 host_name *имя хоста*
-18 host_since *может использоваться для расчета опыта хоста на основе продолжительности с момента первого листинга*
-19 host_location *мы можем использовать его, чтобы установить, является ли хост местным или нет*
-20 host_about *о хосте*
-21 host_response_time object  
-22 host_response_rate object  
-23 host_acceptance_rate object  
-24 host_is_superhost *является ли хост превосходным, зависит от общего отзыва*
-25 host_picture_url object  
-26 host_neighbourhood object  
-27 host_listings_count float64  
-28 host_total_listings_count float64  
-29 host_verifications object  
-30 host_has_profile_pic *есть ли у хоста фото*
-31 host_identity_verified *проверен ли хост*
-32 street object  
-33 neighbourhood object *низший ровень административно-территориальной принадлежности* 
-34 neighbourhood_cleansed *более низкий уровень административно-территориальной принадлежности, чем neighbourhood_group_cleansed*
-35 neighbourhood_group_cleansed *категориальное значение, которое будет использоваться для определения наиболее популярных частей*
-36 state object  
-37 zipcode object  
-38 market object  
-39 smart_location object  
-40 latitude *широта*
-41 longitude *долгота*
-42 is_location_exact object  
-43 property_type
-44 room_type
-45 accommodates *количество мест*
-46 bathrooms *количество ванн*
-47 bedrooms *количество спален*
-48 beds *количество кроватей*
-49 bed_type *тип кровати*
-50 amenities *количество удобств*
-51 square_feet float64  
-52 price float64  
-53 weekly_price object  
-54 monthly_price object  
-55 security_deposit object  
-56 cleaning_fee object  
-57 guests_included int64  
-58 extra_people object  
-59 minimum_nights int64  
-60 maximum_nights int64  
-61 calendar_updated object  
-62 availability_30 int64  
-63 availability_90 int64  
-64 availability_365 int64
-65 calendar_last_scraped object  
-66 number_of_reviews int64  
-67 first_review object  
-68 last_review object  
-69 review_scores_rating float64  
-70 review_scores_accuracy float64  
-71 review_scores_cleanliness float64  
-72 review_scores_checkin float64  
-73 review_scores_communication float64  
-74 review_scores_location float64  
-75 review_scores_value float64  
-76 requires_license object  
-77 license object  
-78 instant_bookable object  
-79 is_business_travel_ready object  
-80 cancellation_policy object  
-81 require_guest_profile_picture object  
-82 require_guest_phone_verification object  
-83 reviews_per_month float64  
-84 maximum_maximum_nights float64  
-85 number_of_reviews_ltm float64  
-86 calculated_host_listings_count_entire_homes float64  
-87 calculated_host_listings_count_private_rooms float64  
-88 calculated_host_listings_count_shared_rooms float64
+По итогам экспертного анализа по более 100 изначальных признаков было решение оставить следующие (название признаков в данном случае чаще всего говорит само за себя, тем не менее, к большинству даны пояснения):
+
+ 0   id                                            int64  
+ 1   last_scraped                                  object *последняя дата парсинга*
+ 2   name                                          object *имя листинга*
+ 3   summary                                       object *саммари объекта аренды*
+ 4   space                                         object *описание географического расположения объекта*
+ 5   description                                   object *описание самого объекта*
+ 6   experiences_offered                           object *онлайн активности хоста*
+ 7   neighborhood_overview                         object *описание территориальной единицы*
+ 8   notes                                         object *заметки хоста*
+ 9   transit                                       object *транспортная доступность*
+ 10  access                                        object *подробности по включенным опциям*
+ 11  interaction                                   object 
+ 12  house_rules                                   object *правила проживания*
+ 13  picture_url                                   object *ссылка на картинку объекта*
+ 14  host_id                                       int64  *id хоста*
+ 15  host_url                                      object *фото хоста*
+ 16  host_name                                     object *имя хоста*
+ 17  host_location                                 object *мы можем использовать его, чтобы установить, является ли хост местным или нет*
+ 18  host_about                                    object *о хосте*
+ 19  host_response_time                            object 
+ 20  host_response_rate                            object 
+ 21  host_acceptance_rate                          object 
+ 22  host_is_superhost                             object *является ли хост превосходным, зависит от общего отзыва*
+ 23  host_picture_url                              object 
+ 24  host_neighbourhood                            object 
+ 25  host_listings_count                           float64
+ 26  host_total_listings_count                     float64
+ 27  host_verifications                            object 
+ 28  host_has_profile_pic                          object *есть ли у хоста фото*
+ 29  host_identity_verified                        object *проверен ли хост*
+ 30  street                                        object 
+ 31  neighbourhood                                 object 
+ 32  neighbourhood_cleansed                        object *уровень административно-территориальной принадлежности*
+ 33  neighbourhood_group_cleansed                  object *более высокий, чем neighbourhood_cleansed уровень административно-территориальной принадлежности* 
+ 34  state                                         object 
+ 35  zipcode                                       object 
+ 36  market                                        object 
+ 37  smart_location                                object 
+ 38  latitude                                      float64
+ 39  longitude                                     float64
+ 40  is_location_exact                             object 
+ 41  property_type                                 object 
+ 42  room_type                                     object 
+ 43  accommodates                                  int64  *количество мест*
+ 44  bathrooms                                     float64 *количество ванн*
+ 45  bedrooms                                      float64 *количество спален*
+ 46  beds                                          float64 *количество кроватей*
+ 47  bed_type                                      object *тип кровати*
+ 48  amenities                                     object *удобства*
+ 49  square_feet                                   float64
+ 50  price                                         float64
+ 51  weekly_price                                  object 
+ 52  monthly_price                                 object 
+ 53  security_deposit                              object 
+ 54  cleaning_fee                                  object 
+ 55  guests_included                               int64  
+ 56  extra_people                                  object 
+ 57  minimum_nights                                int64  
+ 58  maximum_nights                                int64  
+ 59  calendar_updated                              object 
+ 60  availability_30                               int64  
+ 61  availability_90                               int64  
+ 62  availability_365                              int64  
+ 63  number_of_reviews                             int64  
+ 64  first_review                                  object 
+ 65  last_review                                   object 
+ 66  review_scores_rating                          float64
+ 67  review_scores_accuracy                        float64
+ 68  review_scores_cleanliness                     float64
+ 69  review_scores_checkin                         float64
+ 70  review_scores_communication                   float64
+ 71  review_scores_location                        float64
+ 72  review_scores_value                           float64
+ 73  requires_license                              object 
+ 74  license                                       object 
+ 75  jurisdiction_names                            object 
+ 76  instant_bookable                              object 
+ 77  is_business_travel_ready                      object 
+ 78  cancellation_policy                           object 
+ 79  require_guest_profile_picture                 object 
+ 80  require_guest_phone_verification              object 
+ 81  reviews_per_month                             float64
+ 82  df_city                                       object 
+ 83  maximum_maximum_nights                        float64
+ 84  number_of_reviews_ltm                         float64
+ 85  calculated_host_listings_count_entire_homes   float64
+ 86  calculated_host_listings_count_private_rooms  float64
+ 87  calculated_host_listings_count_shared_rooms   float64
 
 Исходя из содержания столбцов, мы пришли к выводу, что можем удалить столбцы listing_url, thumbnail_url, medium_url, xl_picture_url, country_code, country, has_availability.
 В дополнение к этому, были были удалены сильно скоррелированные признаки:
 'maximum_nights_avg_ntm', 'minimum_nights_avg_ntm', 'minimum_maximum_nights', 'minimum_maximum_nights', 'city', 'calculated_host_listings_count', 'minimum_minimum_nights', 'minimum_nights_avg_ntm', 'minimum_minimum_nights', 'jurisdiction_names', 'maximum_minimum_nights', 'medium_url', 'thumbnail_url', 'df_city', 'maximum_minimum_nights', 'availability_60'.
   
 После анализа было решено оставить столбцы, которые могут быть полезны при дальнейшем глубоком анализе, например, может пригодиться name хоста в случае парсинга пользователями набора данных столбцов summary или house_rules, а picture_url может пригодитьсядля понимания, есть ли вообще картинка у предложения.
-
 
 
 ## Список источников
