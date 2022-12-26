@@ -205,6 +205,12 @@
   
 После анализа было решено оставить столбцы, которые могут быть полезны при дальнейшем глубоком анализе, например, может пригодиться name хоста в случае парсинга пользователями набора данных столбцов summary или house_rules, а picture_url может пригодитьсядля понимания, есть ли вообще картинка у предложения.
 
+## Ссылки на датасеты
+Входной датасет
+[https://drive.google.com/file/d/1Q56Hr8nsos65R0Hcn1wJ6On84LjfLUQg/view?usp=share_link](https://drive.google.com/file/d/1Q56Hr8nsos65R0Hcn1wJ6On84LjfLUQg/view?usp=share_link "https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv")
+
+Датасет после минимальной обработки
+[https://drive.google.com/file/d/1Qf1fsuvjinIQM3IiqgpOcSTpcw2tM33G/view?usp=share_link](https://drive.google.com/file/d/1Qf1fsuvjinIQM3IiqgpOcSTpcw2tM33G/view?usp=share_link "https://drive.google.com/file/d/1Qf1fsuvjinIQM3IiqgpOcSTpcw2tM33G/view?usp=share_link")
 
 ## Список источников
 [https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv](https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv "https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv")
