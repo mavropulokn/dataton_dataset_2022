@@ -26,101 +26,101 @@
 
 ## Структура
 
-По итогам экспертного анализа по более 100 изначальных признаков было решение оставить следующие (к абсолютному большинству даны пояснения):
+По итогам экспертного анализа по более 100 изначальных признаков было решение оставить следующие (название признаков в данном случае чаще всего говорит само за себя, тем не менее, к некоторым даны пояснения):
 
- - 0 id int64 *id листинга*
+ - 0 id int64	
  - 1 last_scraped object	*последняя дата парсинга*
  - 2 name object	*имя листинга*
  - 3 summary object	*саммари объекта аренды*
  - 4 space object	*описание географического расположения объекта*
  - 5 description object	*описание самого объекта*
  - 6 experiences_offered object	*онлайн активности хоста*
- - 7 neighborhood_overview object	*описание административно-территориальной единицы*
+ - 7 neighborhood_overview object	*описание территориальной единицы*
  - 8 notes object	*заметки хоста*
  - 9 transit object	*транспортная доступность*
  - 10 access object	*подробности по включенным опциям*
- - 11 interaction object
+ - 11 interaction object	*объектов взаимодействия*
  - 12 house_rules object	*правила проживания*
  - 13 picture_url object	*ссылка на картинку объекта*
  - 14 host_id int64	*id хоста*
- - 15 host_url object
+ - 15 host_url object	*фото хоста*
  - 16 host_name object	*имя хоста*
  - 17 host_location object	*мы можем использовать его, чтобы установить, является ли хост местным или нет*
- - 18 host_about object	*о хосте, текст*
- - 19 host_response_time object	*время ответа, в единицах времени*
- - 20 host_response_rate object
- - 21 host_acceptance_rate object
+ - 18 host_about object	*о хосте*
+ - 19 host_response_time object	*время ответа*
+ - 20 host_response_rate object	*скорость ответа*
+ - 21 host_acceptance_rate object	*коэффициент принятия*
  - 22 host_is_superhost object	*является ли хост превосходным, зависит от общего отзыва*
  - 23 host_picture_url object	*ссылка на объект*
- - 24 host_neighbourhood object	*административно-территориальная единица*
+ - 24 host_neighbourhood object	*соседние районы*
  - 25 host_listings_count float64	
  - 26 host_total_listings_count float64	
- - 27 host_verifications object	*проверка хозяина, список*
+ - 27 host_verifications object	*проверка хозяина*
  - 28 host_has_profile_pic object	*есть ли у хоста фото*
- - 29 host_identity_verified object	*идентифицирован ли хост*
+ - 29 host_identity_verified object	*проверен ли хост*
  - 30 street object	*улица*
  - 31 neighbourhood object	*соседство*
  - 32 neighbourhood_cleansed object	*уровень административно-территориальной принадлежности*
  - 33 neighbourhood_group_cleansed object	*более высокий, чем neighbourhood_cleansed уровень административно-территориальной принадлежности*
- - 34 state object	*штат*
+ - 34 state object	*государственный*
  - 35 zipcode object	*почтовый индекс*
- - 36 market object
+ - 36 market object	*рынок*
  - 37 smart_location object	*расположение*
- - 38 longitude float64	*долгота*
- - 39 is_location_exact object	*расположение точное или нет*
- - 40 property_type object	*тип недвижимости*
- - 41 room_type object	*тип комнат*
- - 42 accommodates int64	*вместимость, кол-во арендаторов*
- - 43 bathrooms float64	*количество ванных*
- - 44 bedrooms float64	*количество спален*
- - 45 beds float64	*количество кроватей*
- - 46 bed_type object	*тип кровати*
- - 47 amenities object	*включенный список услуг*
- - 48 square_feet float64	*площадь*
- - 49 price float64	*цена за день*
- - 50 weekly_price object	*цена за неделю*
- - 51 monthly_price object	*цена за месяц*
- - 52 security_deposit object	*предоплата*
- - 53 cleaning_fee object	*комиссия за уборку*
- - 54 guests_included int64	*количество гостей*
- - 55 extra_people object	*дополнительные места*
- - 56 minimum_nights int64	*минимальное количество ночей*
- - 57 maximum_nights int64	*максимальное количество ночей*
- - 58 calendar_updated object
- - 59 availability_30 int64	*доступность снятия 30*
- - 60 availability_90 int64	*доступность сняти 90*
- - 61 availability_365 int64	*доступность снятия 365*
- - 62 number_of_reviews int64	*количество отзывов*
- - 63 first_review object	*дата, первый обзор*
- - 64 last_review object	*дата, последний обзор*
- - 65 review_scores_rating float64	*общая оценка*
- - 66 review_scores_accuracy float64	*оценка соответствия*
- - 67 review_scores_cleanliness float64	*совокупная оценка по парамтру airbnb*
- - 68 review_scores_checkin float64	*оценка заселения*
- - 69 review_scores_communication float64	*оценка коммуникации с хостом*
- - 70 review_scores_location float64	*оценка локации*
- - 71 review_scores_value float64	*оценка цены*
- - 72 requires_license object
- - 73 license object
- - 74 jurisdiction_names object	*юрисдикция/штат*
- - 75 instant_bookable object	*возможность мгновенного бронирования*
- - 76 is_business_travel_ready object
- - 77 cancellation_policy object	*политика отмены бронирования*
- - 78 require_guest_profile_picture object	*требуется фотография профиля гостя*
- - 79 require_guest_phone_verification object	*требуется подтверждение номера телефона гостя*
- - 80 reviews_per_month float64	*количество отзывов в месяц*
- - 81 df_city object *город*
- - 82 maximum_maximum_nights float64	
- - 83 number_of_reviews_ltm float64	
- - 84 calculated_host_listings_count_entire_homes float64	
- - 85 calculated_host_listings_count_private_rooms float64	
- - 86 calculated_host_listings_count_shared_rooms float64
- - 87  prognosed_occupancy_days_per_year             float64 *прогнозная загрузка объекта аренды, дней в году*      
- - 88  prognosed_income_per_year                     float64 *прогнозный доход объекта аренды, за год, на основе прогнозной загрузки, формула дана выше*      
+ - 38 latitude float64	*широта*
+ - 39 longitude float64	*долгота*
+ - 40 is_location_exact object	*расположение точное или нет*
+ - 41 property_type object	*тип недвижимости*
+ - 42 room_type object	*тип комнат*
+ - 43 accommodates int64	*вместимость*
+ - 44 bathrooms float64	*количество ванных*
+ - 45 bedrooms float64	*количество спален*
+ - 46 beds float64	*количество кроватей*
+ - 47 bed_type object	*тип кровати*
+ - 48 amenities object	*услуги*
+ - 49 square_feet float64	*площадь*
+ - 50 price float64	*цена*
+ - 51 weekly_price object	*цена за неделю*
+ - 52 monthly_price object	*цена за месяц*
+ - 53 security_deposit object	*предоплата*
+ - 54 cleaning_fee object	*комиссия*
+ - 55 guests_included int64	*количество гостей*
+ - 56 extra_people object	*дополнительные места*
+ - 57 minimum_nights int64	*минимальное количество ночей*
+ - 58 maximum_nights int64	*максимальное количество гостей*
+ - 59 calendar_updated object	*календарь обновлений*
+ - 60 availability_30 int64	*доступность 30*
+ - 61 availability_90 int64	*доступность 90*
+ - 62 availability_365 int64	*доступность 365*
+ - 63 number_of_reviews int64	*количество отзывов*
+ - 64 first_review object	*первый обзор*
+ - 65 last_review object	*последний обзор*
+ - 66 review_scores_rating float64	*баллы за отзывы*
+ - 67 review_scores_accuracy float64	*оценка точности обзора*
+ - 68 review_scores_cleanliness float64	*оценка частоты*
+ - 69 review_scores_checkin float64	*оценка заселения*
+ - 70 review_scores_communication float64	*оценка коммуникации*
+ - 71 review_scores_location float64	*оценка локации*
+ - 72 review_scores_value float64	*оценка итоговая*
+ - 73 requires_license object	*требуемая лицензия*
+ - 74 license object	*лицензия*
+ - 75 jurisdiction_names object	*юрисдикция*
+ - 76 instant_bookable object	*мгновенное бронирования*
+ - 77 is_business_travel_ready object	*поездка деловая или нет*
+ - 78 cancellation_policy object	*политика отмены бронирования*
+ - 79 require_guest_profile_picture object	*требуется фотография профиля гостя*
+ - 80 require_guest_phone_verification object	*требуется подтверждение номера гостевого телефона*
+ - 81 reviews_per_month float64	*количество отзывов в месяц*
+ - 82 df_city object	
+ - 83 maximum_maximum_nights float64	
+ - 84 number_of_reviews_ltm float64	*количество рецензий*
+ - 85 calculated_host_listings_count_entire_homes float64	
+ - 86 calculated_host_listings_count_private_rooms float64
+ - 87 calculated_host_listings_count_shared_rooms float64
+ - 88  prognosed_occupancy_days_per_year             float64 *прогнозная загрузка объекта аренды, дней в году*      
+ - 89  prognosed_income_per_year                     float64 *прогнозный доход объекта аренды, за год, на основе прогнозной загрузки, формула дана выше*      
 
 Исходя из содержания столбцов, мы пришли к выводу, что можем удалить столбцы listing_url, thumbnail_url, medium_url, xl_picture_url, country_code, country, has_availability.
-В дополнение к этому, были были удалены сильно скоррелированные признаки:
-'maximum_nights_avg_ntm', 'minimum_nights_avg_ntm', 'minimum_maximum_nights', 'minimum_maximum_nights', 'city', 'calculated_host_listings_count', 'minimum_minimum_nights', 'minimum_nights_avg_ntm', 'minimum_minimum_nights', 'jurisdiction_names', 'maximum_minimum_nights', 'medium_url', 'thumbnail_url', 'df_city', 'maximum_minimum_nights', 'availability_60'.
+В дополнение к этому, были были удалены сильно скоррелированные признаки: maximum_nights_avg_ntm, medium_url, maximum_minimum_nights, minimum_nights_avg_ntm,   calendar_last_scraped,   host_since,   xl_picture_url,   minimum_maximum_nights,   scrape_id,   minimum_minimum_nights, availability_60   calculated_host_listings_count.
   
 После анализа было решено оставить столбцы, которые могут быть полезны при дальнейшем глубоком анализе, например, может пригодиться name хоста в случае парсинга пользователями набора данных столбцов summary или house_rules, а picture_url может пригодитьсядля понимания, есть ли вообще картинка у предложения.
 
