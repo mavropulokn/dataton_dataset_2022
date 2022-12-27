@@ -1,5 +1,3 @@
-
-
 # Применение итогового датасета 
 ﻿Датасет предназначен для арендодателей *для определения ценности сдачи жилья* через marketplace AirBnb (Airbnb, Inc — американская компания в сфере онлайн-бронирования жилья, в первую очередь для краткосрочной аренды в рамках туристических и деловых поездок. Базирующаяся в Сан-Франциско, Калифорния, платформа доступна через веб-сайт и мобильное приложение).
 
@@ -29,7 +27,6 @@
 ## Структура
 
 По итогам экспертного анализа по более 100 изначальных признаков было решение оставить следующие (название признаков в данном случае чаще всего говорит само за себя, тем не менее, к некоторым даны пояснения):
-
 
  - 0 id int64 *id листинга*
  - 1 last_scraped object	*последняя дата парсинга*
@@ -128,18 +125,18 @@
 После анализа было решено оставить столбцы, которые могут быть полезны при дальнейшем глубоком анализе, например, может пригодиться name хоста в случае парсинга пользователями набора данных столбцов summary или house_rules, а picture_url может пригодитьсядля понимания, есть ли вообще картинка у предложения.
 
 ## Ссылки на датасеты
-[Датасет после склейки нескольких датасетов из источников](https://drive.google.com/file/d/1Q56Hr8nsos65R0Hcn1wJ6On84LjfLUQg/view?usp=share_link "https://drive.google.com/file/d/1wrZYskv9ip9_phHSFQaCCKMeTytY7V2M/view?usp=share_link")
+[Датасет после склейки нескольких датасетов из источников](https://drive.google.com/file/d/1wrZYskv9ip9_phHSFQaCCKMeTytY7V2M/view?usp=share_link)
 
-[Датасет после необходимой очистки от неинформативных фичей](https://drive.google.com/file/d/1Q56Hr8nsos65R0Hcn1wJ6On84LjfLUQg/view?usp=share_link "https://drive.google.com/file/d/1_SK2dK48WFqYn0P1u1dsljkl9MBrM6wR/view?usp=share_link")
+[Датасет после необходимой очистки от неинформативных фичей](https://drive.google.com/file/d/1_SK2dK48WFqYn0P1u1dsljkl9MBrM6wR/view?usp=share_link)
 
-[Датасет после необходимой очистки от неинформативных фичей и трансформации признаков](https://drive.google.com/file/d/1Q56Hr8nsos65R0Hcn1wJ6On84LjfLUQg/view?usp=share_link "https://drive.google.com/file/d/1rtQ5M5pAas0rWm0E4MIYWroArb_G44E0/view?usp=share_link")
+[Датасет после необходимой очистки от неинформативных фичей и трансформации признаков](https://drive.google.com/file/d/1rtQ5M5pAas0rWm0E4MIYWroArb_G44E0/view?usp=share_link)
 
 
 ## Список источников
-[https://www.kaggle.com/datasets/broach/denverairbnb](https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv "https://www.kaggle.com/datasets/broach/denverairbnb")
+[https://www.kaggle.com/datasets/broach/denverairbnb](https://www.kaggle.com/datasets/broach/denverairbnb)
 
-[https://www.kaggle.com/datasets/airbnb/seattle](https://www.kaggle.com/datasets/airbnb/seattle "https://www.kaggle.com/datasets/airbnb/seattle")
+[https://www.kaggle.com/datasets/airbnb/seattle](https://www.kaggle.com/datasets/airbnb/seattle)
 
-[https://www.kaggle.com/datasets/airbnb/boston](https://www.kaggle.com/datasets/airbnb/boston "https://www.kaggle.com/datasets/airbnb/boston")
+[https://www.kaggle.com/datasets/airbnb/boston](https://www.kaggle.com/datasets/airbnb/boston)
 
-[https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata](https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata "https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata")
+[https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata](https://www.kaggle.com/datasets/arianazmoudeh/airbnbopendata)
