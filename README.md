@@ -7,6 +7,8 @@
 - **сгенерирован признак prognosed_occupancy_days_per_year** - рассчитан на с использованием открытой в 2012 году информации о том, что 72% всех гостей оставляют отзывы, то есть делится количество всех отзывов на 0.72 (получаем фактическое примерное количество заездов), далее умножается на минимальное число дней для бронирования и делится на период в днях, за который были собраны отзывы (то есть получается относительная загрузка по времени объекта аренды), умножается на 365 дней (количество дней, когда объект загружен);
 - также **сгенерирован признак prognosed_income_per_year**, путем умножения prognosed_occupancy_days_per_year на цену за день (**без учета инфляции*)
 
+**Выводы по визуальному анализу находятся в notebook файле в данном репозитории.**
+
 Конечно же, датасет содержит расположение объектов и по столбцам можно понять о качестве объекта и наличии удобств, техники. 
 Более того, признаков достаточно для глубокого анализа (например, сохранено имя объекта для тех пользователей датасета, кто захочет найти упоминание имени в саммари или прочих текстовых столбцах для анализа тональности), то есть при глубоком анализе можно сделать вывод, каким может быть эффективное описание или саммари объекта и требования квартиросъемщику.
 
@@ -126,14 +128,15 @@
 После анализа было решено оставить столбцы, которые могут быть полезны при дальнейшем глубоком анализе, например, может пригодиться name хоста в случае парсинга пользователями набора данных столбцов summary или house_rules, а picture_url может пригодитьсядля понимания, есть ли вообще картинка у предложения.
 
 ## Ссылки на датасеты
-Входной датасет
-[https://drive.google.com/file/d/1Qf1fsuvjinIQM3IiqgpOcSTpcw2tM33G/view?usp=share_link](https://drive.google.com/file/d/1Qf1fsuvjinIQM3IiqgpOcSTpcw2tM33G/view?usp=share_link "https://drive.google.com/file/d/1Qf1fsuvjinIQM3IiqgpOcSTpcw2tM33G/view?usp=share_link")
+[Датасет после склейки нескольких датасетов из источников](https://drive.google.com/file/d/1Q56Hr8nsos65R0Hcn1wJ6On84LjfLUQg/view?usp=share_link "https://drive.google.com/file/d/1wrZYskv9ip9_phHSFQaCCKMeTytY7V2M/view?usp=share_link")
 
-Датасет после минимальной обработки
-[https://drive.google.com/file/d/1Q56Hr8nsos65R0Hcn1wJ6On84LjfLUQg/view?usp=share_link](https://drive.google.com/file/d/1Q56Hr8nsos65R0Hcn1wJ6On84LjfLUQg/view?usp=share_link "https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv")
+[Датасет после необходимой очистки от неинформативных фичей](https://drive.google.com/file/d/1Q56Hr8nsos65R0Hcn1wJ6On84LjfLUQg/view?usp=share_link "https://drive.google.com/file/d/1_SK2dK48WFqYn0P1u1dsljkl9MBrM6wR/view?usp=share_link")
+
+[Датасет после необходимой очистки от неинформативных фичей и трансформации признаков](https://drive.google.com/file/d/1Q56Hr8nsos65R0Hcn1wJ6On84LjfLUQg/view?usp=share_link "https://drive.google.com/file/d/1rtQ5M5pAas0rWm0E4MIYWroArb_G44E0/view?usp=share_link")
+
 
 ## Список источников
-[https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv](https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv "https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv")
+[https://www.kaggle.com/datasets/broach/denverairbnb](https://www.kaggle.com/datasets/broach/denverairbnb?select=listings.csv "https://www.kaggle.com/datasets/broach/denverairbnb")
 
 [https://www.kaggle.com/datasets/airbnb/seattle](https://www.kaggle.com/datasets/airbnb/seattle "https://www.kaggle.com/datasets/airbnb/seattle")
 
